@@ -2,12 +2,16 @@ var EventEmitter = require('events');
 var util = require('util');
 
 function Greetr() {
+    // Super constructor: the constructor I'm inheriting from!
+    // This gives things the object has outside of it's prototype
+    EventEmitter.call(this);
     this.greeting = 'Hello world!';
 }
 
 // any new objects created from Greetr will 
 // also get access to methods and properties on the
 // prototype of EventEmitter!
+// JUST PROTOTYPE
 util.inherits(Greetr, EventEmitter);
 
 // an example of passing data through events 
