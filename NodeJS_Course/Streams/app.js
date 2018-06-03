@@ -6,7 +6,7 @@ var fs = require('fs');
 // highWaterMark specpifies the size of the buffer: 32 * 1024 = 32k
 var readable = fs.createReadStream(__dirname + '/greet.txt', { encoding: 'utf8', highWaterMark: 16 * 1024});
 
-// crea
+// create write stream
 var writable = fs.createWriteStream(__dirname + '/greetcopy.txt');
 
 
