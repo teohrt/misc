@@ -18,7 +18,7 @@ http.createServer(function(req, res) {
     // 'utf8' makes it a string
     var html = fs.readFileSync(__dirname + '/index.html', 'utf8')
 
-    // using a template
+    // dynamic templates!
     var message = 'Hello world....';
     html = html.replace('{Message}', message);
     res.end(html);
@@ -27,4 +27,5 @@ http.createServer(function(req, res) {
     // a properly formatted http response
 
 // when information is sent to this port on the server, use this code
+// "localhost:1337"
 }).listen(1337, '127.0.0.1');
