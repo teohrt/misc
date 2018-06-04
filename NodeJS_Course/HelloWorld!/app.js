@@ -16,12 +16,15 @@ http.createServer(function(req, res) {
     
     // body
     // 'utf8' makes it a string
-    var html = fs.readFileSync(__dirname + '/index.html', 'utf8')
+    // var html = fs.readFileSync(__dirname + '/index.html', 'utf8')
+
+    //pipe it to the response stream for good performance!
+    fs.createReadStream(__dirname + '/index.html').pipe(res);
 
     // dynamic templates!
-    var message = 'Hello world....';
-    html = html.replace('{Message}', message);
-    res.end(html);
+    // var message = 'Hello world....';
+    // html = html.replace('{Message}', message);
+    // res.end(html);
 
     // node.js takes this and creates 
     // a properly formatted http response
