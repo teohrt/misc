@@ -9,6 +9,11 @@ app.get('/', function(req, res) {
     res.send('<html><head><head/><body><h1>Hello World!</h1></body></html>');
 });
 
+// How to use the URL and pull data out of it!
+app.get('/person/:id', function(req, res) {
+	res.send('<html><head></head><body><h1>What\'s up, ' + req.params.id + '?!</h1></body></html>');
+});
+
 app.get('/api', function(req, res) {
     res.json({ firstname: 'John', lastname: 'Doe'});
 });
