@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<link href="assets/style.css" type="text/css" rel="stylesheet" />
-		<script = src="https://code.jquerry.com/jquery-1.11.3.min.js " />
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js" ></script>
 	</head>
 	<body>
 		<h1>Hello world!</h1>
@@ -13,13 +13,10 @@
 		<script>
 			$.ajax({
 				type: "POST",
-				url: "/person/json",
-				data: JSON.stringify({
-					firstname: 'Jane',
-					lastname: 'Doe',
-					dataType: 'json',
-					contentType: 'application/json'
-				})
+				url: "/personjson",
+				data: JSON.stringify({ firstname: 'Jane', lastname: 'Doe' }),
+				dataType: 'json',
+				contentType: 'application/json'
 			});
 		</script>
 	</body>
