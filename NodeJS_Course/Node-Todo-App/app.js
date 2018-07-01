@@ -3,6 +3,7 @@ var app = express();
 var mongoose = require('mongoose');
 var config = require('./config');
 var setupController = require('./controllers/setupController');
+var apiController = require ('./controllers/apiController');
 
 // If on production we'll have an environment variable for the port number
 // otherwise we'll default to localhost:3000
@@ -20,7 +21,9 @@ mongoose.connect(config.getDbConnectionString());
 // Get a reference to the connection
 var db = mongoose.connection;
 
+// Making express aware of our endpoints
 setupController(app);
+apiController(app);
 
 console.log('Server started and listening...');
 app.listen(port);
