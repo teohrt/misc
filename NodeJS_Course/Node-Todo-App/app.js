@@ -1,15 +1,20 @@
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
+var config = require('./config');
 
-// if on production we'll have an environment variable for the port number
+// If on production we'll have an environment variable for the port number
 // otherwise we'll default to localhost:3000
 var port = process.env.PORT || 3000;
 
-// set up public assets folder to be delivered straight to the browser
+// Set up public assets folder to be delivered straight to the browser
 app.use('/assets', express.static(__dirname + '/public'));
 
 // View engine for cool templating for the serverside. 
 // Probably use Angular.js for clientside
 app.set('view engine', 'ejs');
+
+// Connect to the DB!
+mongoose.connect(config.getDbConnectionString());
 
 app.listen(port);
