@@ -29,12 +29,12 @@ module.exports = function(app) {
     app.post('/api/todo', function(req, res) {
 
         // Updates if already present
-        if(req.body.id) {
-            Todos.findByIdAndUpdate(req.body.id, { todo: req.body.todo, isDone: req.body.isDone, hasAttachment: req.body.hasAttachment }), function(err, todo) {
+        if(req.body._id) {
+            Todos.findByIdAndUpdate(new ObjectID(req.body._id), { todo: req.body.todo, isDone: req.body.isDone, hasAttachment: req.body.hasAttachment }, function(err, todo) {
                 if (err) throw err;
 
-                res.send('Success');
-            }
+                res.send('Updated record');
+            });
         }
 
         // Create new Todo and put on db
@@ -48,7 +48,7 @@ module.exports = function(app) {
 
             newTodo.save(function(err) {
                 if (err) throw err;
-                res.send('Success');
+                res.send('No match. Added new record');
             });
         }
 
@@ -57,11 +57,11 @@ module.exports = function(app) {
     // Remove a todo
     app.delete('/api/todo', function(req, res) {
 
-        Todos.findByIdAndRemove(req.body.id, function(err) {
+        Todos.findByIdAndRemove(new ObjectID(req.body._id), function(err) {
             if (err) throw err;
             res.send('Success');
         })
 
-    })
+    });
 
 }
