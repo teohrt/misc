@@ -6,7 +6,10 @@ var configValues = require('./config');
 module.exports = {
 
     getDbConnectionString: function() {
-        return 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@ds217671.mlab.com:17671/hawtstorage'
+        //return 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@ds217671.mlab.com:17671//hawtstorage'
+        // this kind of auth doesn't work for that service anymore
+        // going local
+        return 'mongodb://localhost/todo-app'
     }
 
 }
