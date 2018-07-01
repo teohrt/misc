@@ -10,7 +10,7 @@ var apiController = require ('./controllers/apiController');
 var port = process.env.PORT || 3000;
 
 // Set up public assets folder to be delivered straight to the browser
-app.use('/assets', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 
 // View engine for cool templating for the serverside. 
 // Probably use Angular.js for clientside
