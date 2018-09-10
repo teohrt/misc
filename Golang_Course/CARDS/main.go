@@ -1,11 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
-	// This is going to be a slice of type string
+	// This is going to be a slice of type deck
 	cards := newDeck()
 
 	// Multiple return values!
@@ -14,5 +10,8 @@ func main() {
 	// remainingDeck.print()
 
 	// Joining a slice of strings!
-	fmt.Println(cards.toString())
+	// fmt.Println(cards.toString())
+
+	// Saving data to the hard drive
+	cards.saveToFile("my_cards")
 }
