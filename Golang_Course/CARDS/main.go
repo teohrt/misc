@@ -3,6 +3,7 @@ package main
 func main() {
 	// This is going to be a slice of type string
 	cards := newDeck()
+	// Random number generation
 	cards.shuffle()
 	cards.print()
 
