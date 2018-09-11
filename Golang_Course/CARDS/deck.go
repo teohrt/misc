@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -27,7 +28,7 @@ func newDeck() deck {
 	return cards
 }
 
-//
+// The function takes a reciever deck and prints all the cards
 func (d deck) print() {
 	for index, card := range d {
 		fmt.Println(index, card)
@@ -54,4 +55,21 @@ func (d deck) toString() string {
 func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 	// Arguemnts: (filename, byte slice of string, permsions number representing that anyone can read or write)
+}
+
+func newDeckFromFile(filename string) deck {
+	// 'bs' is a byte slice from the input file
+	bs, err := ioutil.ReadFile(filename)
+
+	// If something goes wrong
+	if err != nil {
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+	}
+
+	// Convert byte slice to string.
+	// Split on the comma delimiter and convert the string to a string slice
+	// Convert that string slice to a deck and return it
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 }
