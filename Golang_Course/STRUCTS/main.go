@@ -10,10 +10,12 @@ type contactInfo struct {
 type person struct {
 	firstName string
 	lastName  string
-	contact   contactInfo
+	// You don't need to assign a name to a struct here
+	contactInfo
 }
 
 func main() {
+	// There are a few different ways to initialize
 	// trace := person{"Trace", "Ohrt"}
 
 	// var trace person
@@ -23,13 +25,24 @@ func main() {
 	trace := person{
 		firstName: "Trace",
 		lastName:  "Ohrt",
-		contact: contactInfo{
+		contactInfo: contactInfo{
 			email:   "teohrt18@gmail.com",
 			zipCode: 50010,
 		},
 	}
 
-	fmt.Println(trace)
-	fmt.Printf("%+v\n", trace)
+	// YOU DON'T NEED TO DO THIS IN GO
+	// tracePointer := &trace
+	trace.updateName("TRACEEEEE")
+	trace.print()
 
+}
+
+// Pointers!
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+}
+
+func (p person) print() {
+	fmt.Printf("%+v\n", p)
 }
