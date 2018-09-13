@@ -21,21 +21,23 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	// THE WHOLE LOOP IS NOT EXCECUTED ALL AT ONCE
+	// THE LOOP IS NOT EXCECUTED ALL AT ONCE
 	// <-c is a blocking call
 	// This means that when the program gets to it, it temporarily pauses
 	// And waits for another go routine to send a message over the channel
 	// This is so cool!
-	for i := 0; i < len(links); i++ {
-		fmt.Println(<-c)
+	for {
+		go checkLink(<-c, c)
 	}
 }
 
 func checkLink(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
-		c <- "DOWN! : " + link
+		fmt.Println("Might be down:", link)
+		c <- link
 		return
 	}
-	c <- "UP AND RUNNING!: " + link
+	fmt.Println("Up and running:", link)
+	c <- link
 }
