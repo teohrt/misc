@@ -3,9 +3,10 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
-// Website checking program
+// Website status checking program
 func main() {
 	links := []string{
 		"http://google.com",
@@ -21,13 +22,18 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	// THE LOOP IS NOT EXCECUTED ALL AT ONCE
-	// <-c is a blocking call
+	// Infinite loop
+	// l is equal to <-c
+	// This is a blocking call
 	// This means that when the program gets to it, it temporarily pauses
 	// And waits for another go routine to send a message over the channel
 	// This is so cool!
-	for {
-		go checkLink(<-c, c)
+	for l := range c {
+		// Function literal to help space out requests to the same site
+		go func(link string) {
+			time.Sleep(5 * time.Second)
+			checkLink(link, c)
+		}(l)
 	}
 }
 
