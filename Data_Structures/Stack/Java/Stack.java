@@ -2,16 +2,16 @@ package ds;
 public class Stack {
 	
 	private int maxSize;
-	private long[] stackArray;
+	private char[] stackArray;
 	private int top;
 	
 	public Stack(int size) {
 		this.maxSize = size;
-		this.stackArray = new long[maxSize];
+		this.stackArray = new char[maxSize];
 		this.top = -1;
 	}
 	
-	public void push(long j) {
+	public void push(char j) {
 		if (isFull()) {
 			System.out.println(" This stack is already full.");
 		}
@@ -21,10 +21,10 @@ public class Stack {
 		}
 	}
 	
-	public long pop() {
+	public char pop() {
 		if (isEmpty()) {
 			System.out.println(" This stack is already empty");
-			return -1;
+			return ' ';
 		}
 		else {
 			top--;
@@ -32,7 +32,7 @@ public class Stack {
 		}
 	}
 	
-	public long peek() {
+	public char peek() {
 		return stackArray[top];
 	}
 	
