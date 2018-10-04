@@ -5,12 +5,18 @@ import "fmt"
 func main() {
 	stack := Stack{}
 
-	fmt.Println(stack.isEmpty())
-	stack.push(10)
-	stack.push(20)
-	fmt.Println(stack.isEmpty())
-	fmt.Println(stack.pop())
-	fmt.Println(stack.pop())
-	fmt.Println(stack.pop())
-	fmt.Println(stack.isEmpty())
+	str := "Reverse this string by using a stack!"
+	fmt.Println(str)
+
+	for i, _ := range str {
+		stack.push(str[i])
+	}
+
+	for !stack.isEmpty() {
+		fmt.Print(string(stack.pop()))
+	}
+	
+	fmt.Println()
+
+
 }
