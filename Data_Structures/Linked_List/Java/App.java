@@ -3,20 +3,17 @@ package ds;
 public class App {
 
 	public static void main(String[] args) {
-		Node nodeA = new Node();
-		nodeA.data = 4;
+		SinglyLinkedList list = new SinglyLinkedList();
 		
-		Node nodeB = new Node();
-		nodeB.data = 3;
+		list.insertFirst(100);
+		list.insertFirst(200);
+		list.insertFirst(300);
+		list.insertFirst(400);
+		list.insertFirst(500);
+		list.insertLast(1000000);
 		
-		Node nodeC = new Node();
-		nodeC.data = 7;
-		
-		Node nodeD = new Node();
-		nodeD.data = 8;
-		
+		list.displayList();
 		
 		
 	}
-
 }
