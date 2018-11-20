@@ -4,7 +4,7 @@ public class SinglyLinkedList {
 	private Node first;
 	
 	public SinglyLinkedList() {
-		
+		 	
 	}
 	
 	public boolean isEmpty() {

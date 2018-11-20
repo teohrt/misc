@@ -3,7 +3,7 @@ package ds;
 public class App {
 
 	public static void main(String[] args) {
-		SinglyLinkedList list = new SinglyLinkedList();
+		CircularLinkedList list = new CircularLinkedList();
 		
 		list.insertFirst(100);
 		list.insertFirst(200);
