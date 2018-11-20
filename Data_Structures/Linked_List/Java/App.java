@@ -3,17 +3,23 @@ package ds;
 public class App {
 
 	public static void main(String[] args) {
-		CircularLinkedList list = new CircularLinkedList();
+		DoublyLinkedList list = new DoublyLinkedList();
 		
-		list.insertFirst(100);
-		list.insertFirst(200);
-		list.insertFirst(300);
-		list.insertFirst(400);
-		list.insertFirst(500);
-		list.insertLast(1000000);
+		list.insertLast(3);
+		list.insertLast(4);
+		list.insertLast(9999);
+		list.insertFirst(2);
+		list.insertFirst(1);
+		list.deleteLast();
+		list.insertAfter(4, 5);
+		list.insertFirst(0);
+		list.deleteFirst();
+		list.insertFirst(00000);
+		list.deleteFirst();
+		list.insertAfter(3, 6);
+		list.deleteKey(6);
 		
-		list.displayList();
-		
-		
+		list.displayForward();
+		list.displayBackward();
 	}
 }
