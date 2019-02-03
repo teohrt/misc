@@ -26,7 +26,14 @@ and the naive recursive solution
 
 type FibFunc func(int) int
 
-// Decerator for logging the excecution time of the Fibonacci algorithms
+/*
+Decerator for logging the excecution time of the Fibonacci algorithms
+
+EX:
+main.recursiveFibDP - runtime: 119795
+main.iterativeFibDP - runtime: 8482
+main.fibNaive - runtime: 922244202
+*/
 func excecutionTimeLogger(f FibFunc) FibFunc {
 	return func(n int) int {
 		defer func(t time.Time) {

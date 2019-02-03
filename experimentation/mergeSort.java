@@ -35,7 +35,7 @@ public class mergeSort {
 			}
 		}
 		
-		// concat remaining elements to the results array
+		// add remaining elements to the results array
 		if (leftIndex < left.length) {
 			for (int i = leftIndex; i < left.length; i++) {
 				result[resultIndex++] = left[i];
