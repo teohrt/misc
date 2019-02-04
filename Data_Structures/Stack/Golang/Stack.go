@@ -1,31 +1,43 @@
-package main
+package stack
 
-import "fmt"
+import (
+	"fmt"
 
-type Stack []byte
+	"github.com/cheekybits/genny/generic"
+)
 
-func (s *Stack) push(v byte) {
+// Item is a "generic type" our Stack will store
+type Item generic.Type
+
+// Stack is fundamentally just a slice of items with extra functionality.
+type Stack []Item
+
+// Push appends an item to the stack
+func (s *Stack) Push(v Item) {
 	*s = append(*s, v)
 }
 
-func (s *Stack) pop() byte {
-	if (s.isEmpty()) {
+// Pop removes and returns the item at the end of the stack
+func (s *Stack) Pop() Item {
+	if s.IsEmpty() {
 		fmt.Println(" The stack is already empty.")
-		return ' ';
+		return ' '
 	}
 	v := (*s)[len(*s)-1]
 	*s = (*s)[:len(*s)-1]
-	return v;
+	return v
 }
 
-func (s *Stack) peek() byte {
-	if (s.isEmpty()) {
+// Peek returns the Item at the end of the stack
+func (s *Stack) Peek() Item {
+	if s.IsEmpty() {
 		fmt.Println(" The stack is already empty.")
-		return ' ';
+		return ' '
 	}
 	return (*s)[len(*s)-1]
 }
 
-func (s *Stack) isEmpty() bool {
-	return len(*s) == 0;
+// IsEmpty returns a bool representing whether or not the stack is empty
+func (s *Stack) IsEmpty() bool {
+	return len(*s) == 0
 }
