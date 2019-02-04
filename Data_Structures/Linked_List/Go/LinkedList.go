@@ -51,7 +51,7 @@ func (l *LinkedList) Append(item Item) {
 	l.lock.Unlock()
 }
 
-// RemoveHead deletes the first node in the LinkedList
+// RemoveHead deletes the first node in the LinkedList and returns its value
 func (l *LinkedList) RemoveHead() Item {
 	l.lock.Lock()
 	v := l.head.content
